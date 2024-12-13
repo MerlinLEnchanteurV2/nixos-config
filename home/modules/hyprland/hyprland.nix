@@ -67,8 +67,8 @@
 	services.hyprpaper.settings = {
 		ipc = "on";
 		splash = false;
-		preload = [ "/etc/nixos/home/modules/hyprland/wallpapers/jwst.png" ];
-		wallpaper = [ ",/etc/nixos/home/modules/hyprland/wallpapers/jwst.png" ];
+		preload = [ "/etc/nixos/wallpapers/jwst.png" ];  # TODO: change the path to your wallpaper
+		wallpaper = [ ",/etc/nixos/wallpapers/jwst.png" ];
 	};
 
 	programs.hyprlock = {
