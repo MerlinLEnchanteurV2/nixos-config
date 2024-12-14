@@ -10,7 +10,7 @@
 	];
 	wayland.windowManager.hyprland.settings = {
 		"$mod" = "SUPER";
-		"$BROWSER" = "firefox";
+		"$BROWSER" = "librewolf";
 
 		animation = [
 			"workspaces, 1, 2, default"
