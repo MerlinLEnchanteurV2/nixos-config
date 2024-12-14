@@ -24,5 +24,8 @@
 		};
 		font.size = 13;
 		font.name = "DejaVu Sans";
+		settings = {
+			background_opacity = 0.75;
+		};
 	};
 }
