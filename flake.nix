@@ -27,13 +27,13 @@
 			nixos = nixpkgs.lib.nixosSystem { 
 				system = "x86_64-linux";
 				modules = [
-					./config/config.nix
+					./config
 					home-manager.nixosModules.home-manager
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
 						home-manager.extraSpecialArgs = { inherit inputs; inherit nixvim; inherit secrets; };
-						home-manager.users.${secrets.username} = import ./home/home.nix;
+						home-manager.users.${secrets.username} = import ./home;
 					}
 				];
 			};

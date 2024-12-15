@@ -2,7 +2,7 @@
 {
 	imports = [
 		nixvim.homeManagerModules.nixvim
-		./modules/modules.nix
+		./modules
 		./packages.nix
 	];
 
