@@ -11,13 +11,15 @@
 		settings = {
 			mainBar = {
 				layer = "top";
-				modules-left = [ "custom/nix" "hyprland/workspaces" "custom/cava-internal"];
+				# position = "left";
+				modules-left = [ "custom/power" "hyprland/workspaces" ];
 				modules-center = [ "clock" ];
 				modules-right = [ "cpu" "memory" "backlight" "pulseaudio" "bluetooth" "network" "battery" ];
 
-				"custom/nix" = {
-					"format" = " ≡  ";
+				"custom/power" = {
+					"format" = " 󰐥 ";
 					"tooltip" = false;
+					"on-click" = "${lib.getExe pkgs.wlogout}";
 				};
 				"hyprland/workspaces" = {
 					"format" = "{icon}";
@@ -34,14 +36,10 @@
 						"9" = "9"; 
 						"10" = "10";
 					};
-				};
-				"custom/cava-internal" = {
-					"exec" = "sleep 1s && cava-internal";
-					"tooltip" = false;
-				};
+				};	
 
 				"clock" = {
-					"format" = "<span color='#b4befe'>🕒 </span>{:%H:%M}";
+					"format" = "{:%H:%M}";
 					"tooltip" = true;
 					"tooltip-format" = "{:%Y-%m-%d %a}";
 					"on-click" = "/bin/sh ./wallpapers/wallpaper.sh";
@@ -55,39 +53,39 @@
 				"backlight" = {
 					"device" = "intel_backlight";
 					"format" = "<span color='#b4befe'>{icon}</span> {percent}%";
-					"format-icons" = ["☼"];
+					"format-icons" = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
 				};
 				"pulseaudio"= {
 					"format" = "<span color='#b4befe'>{icon}</span> {volume}%";
-					"format-muted" = "🔇";
+					"format-muted" = "󰝟";
 					"tooltip" = false;
 					"format-icons" = {
 						"headphone" = "";
-						"default" = ["🔈" "🔊"];
+						"default" = ["󰕿" "󰖀" "󰕾"];
 					};
 					"scroll-step" = 1;
 					"on-click" = "${lib.getExe pkgs.pavucontrol}";
 				};
 				"bluetooth" = {
-					"format" = "<span color='#b4befe'></span> {status}";
-					"format-disabled" = "";
-					"format-connected" = "<span color='#b4befe'></span> {num_connections}";
+					"format" = "<span color='#b4befe'> </span> {status}";
+					"format-disabled" = "󰂲";
+					"format-connected" = "<span color='#b4befe'>󰂯</span> {num_connections}";
 					"tooltip-format" = "{device_enumerate}";
 					"tooltip-format-enumerate-connected" = "{device_alias}   {device_address}";
 					"on-click" = "kitty ${lib.getExe pkgs.bluetuith}";
 				};
 				"network" = {
 					"format" = "{ifname}";
-					"format-wifi" = "<span color='#b4befe'> </span>{essid}";
-					"format-ethernet" = "{ipaddr}/{cidr} ";
-					"format-disconnected" = "<span color='#b4befe'>󰖪 </span>No Network";
+					"format-wifi" = "<span color='#b4befe'> </span> {essid}";
+					"format-ethernet" = "<span color='#b4befe'>󰈀 </span> {ipaddr}/{cidr}";
+					"format-disconnected" = "<span color='#b4befe'>󰖪 </span> No Network";
 					"tooltip" = false;
 					"on-click" = "kitty nmtui";
 				};
 				"battery" = {
-					"format" = "<span color='#b4befe'>{icon}</span> {capacity}%";
-					"format-icons" =  ["" "" "" "" "" "" "" "" "" ""];
-					"format-charging" = "<span color='#b4befe'></span> {capacity}%";
+					"format" = "{icon} {capacity}%";
+					"format-icons" =  ["<span color='#FF0000'> </span>" "<span color='#b4befe'> </span>" "<span color='#b4befe'> </span>" "<span color='#b4befe'> </span>" "<span color='#b4befe'> </span>" ];
+					"format-charging" = "<span color='#b4befe'>󱐋 </span>{icon} {capacity}%";
 					"tooltip" = false;
 				};
 			};
@@ -96,9 +94,8 @@
 		style = ''
 			* {
 				border: none;
-				font-family: 'Fira Code';
-				font-size: 10px;
-				font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+				font-family: 'Ubuntu Nerd Font';
+				font-size: 15px;
 				min-height: 20px;
 			}
 
@@ -106,7 +103,7 @@
 				background: transparent;
 			}
 
-			#custom-nix, 
+			#custom-power, 
 			#workspaces {
 				border-radius: 7px;
 				background-color: #11111b;
@@ -118,22 +115,11 @@
 				padding-right: 7px;
 			}
 
-			#custom-nix {
+			#custom-power {
 				font-size: 20px;
 				margin-left: 15px;
 				color: #b4befe;
-			}
-
-			#custom-cava-internal {
-				padding-left: 10px;
-				padding-right: 10px;
-				padding-top: 1px;
-				font-family: "Hack Nerd Font";
-				color: #b4befe;
-				background-color: #11111b;
-				margin-top: 7px;
-				border-radius: 10px;
-			}
+			}	
 
 			#workspaces button.active {
 				background: #11111b;
