@@ -96,7 +96,7 @@
 		style = ''
 			* {
 				border: none;
-				font-family: 'Fira Code', 'Symbols Nerd Font Mono';
+				font-family: 'Fira Code';
 				font-size: 10px;
 				font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 				min-height: 20px;

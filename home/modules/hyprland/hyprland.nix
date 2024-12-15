@@ -1,5 +1,10 @@
 {inputs, pkgs, lib, ...}:
-{	
+{
+	services.mako = {
+		enable = true;
+		defaultTimeout = 5000;
+		backgroundColor = "#000000FF";
+	};
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
