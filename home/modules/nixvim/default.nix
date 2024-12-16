@@ -6,16 +6,16 @@
   	vimAlias = true;
 		defaultEditor = true;
 
-		plugins = {
-			web-devicons.enable = true;
-			which-key.enable = true;
-			telescope = {
+		
+			plugins.web-devicons.enable = true;
+			plugins.which-key.enable = true;
+			plugins.telescope = {
 				enable = true;
 				keymaps = {
 					"<leader> " = { action = "find_files"; };
 				};
 			};
-			neo-tree = {
+			plugins.neo-tree = {
 				enable = true;
 				window = {
 					mappings = {
@@ -25,19 +25,19 @@
 				};
 			};
 
-			notify = {
-				enable = true;
-				topDown = false;
-				stages = "slide";
-				render = "minimal";
-			};
-			noice.enable = true;
+			
+			plugins.notify.enable = true;
+			plugins.notify.topDown = false;
+			plugins.notify.stages = "slide";
+			plugins.notify.render = "minimal";
+			
+			plugins.noice.enable = true;
 
 			# Code
-			todo-comments.enable = true;
-			indent-blankline.enable = true;
+			plugins.todo-comments.enable = true;
+			plugins.indent-blankline.enable = true;
 
-			lsp = {
+			plugins.lsp = {
 				enable = true;
 				servers = {
 					nil_ls.enable = true;
@@ -53,7 +53,7 @@
 				};
 			};
 
-			cmp = {
+			plugins.cmp = {
 				enable = true;
 				autoEnableSources = true;
 				settings = {
@@ -72,7 +72,7 @@
 					};
 				};
 			};
-		};
+		
 		keymaps = [
 			{
 				mode = "n";

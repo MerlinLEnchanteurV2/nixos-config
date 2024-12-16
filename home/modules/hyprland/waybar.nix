@@ -100,7 +100,7 @@
 				border: none;
 				font-family: 'Ubuntu Nerd Font';
 				font-size: 15px;
-				background: #11111b;
+				background: #110000;
 				color: #b4befe;
 			}
 
