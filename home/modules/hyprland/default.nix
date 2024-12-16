@@ -45,8 +45,12 @@
 			"$mod SHIFT, Escape, togglefloating"
 			"$mod, Escape, fullscreen" 
 
-			",XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} set 1%-"
-			",XF86MonBrightnessUp, exec, ${lib.getExe pkgs.brightnessctl} set 1%+"
+			", XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} set 1%-"
+			", XF86MonBrightnessUp, exec, ${lib.getExe pkgs.brightnessctl} set 1%+"
+
+			", XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+			", XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+			", XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
 			"$mod SHIFT, H, exec, systemctl hibernate && hyprlock"
 		] ++ (
@@ -72,7 +76,7 @@
 	services.hyprpaper.settings = {
 		ipc = "on";
 		splash = false;
-		preload = [ "/etc/nixos/wallpapers/jwst.png" ];  # TODO: change the path to your wallpaper
+		preload = [ "/etc/nixos/wallpapers/jwst.png" ];
 		wallpaper = [ ",/etc/nixos/wallpapers/jwst.png" ];
 	};
 
