@@ -11,7 +11,7 @@
 		settings = {
 			mainBar = {
 				layer = "top";
-				# position = "left";
+				position = "left";
 				modules-left = [ "custom/power" "hyprland/workspaces" ];
 				modules-center = [ "clock" ];
 				modules-right = [ "cpu" "memory" "backlight" "pulseaudio" "bluetooth" "network" "battery" ];
@@ -39,26 +39,30 @@
 				};	
 
 				"clock" = {
-					"format" = "{:%H:%M}";
+					"format" = "{:%H\n%M}";
 					"tooltip" = true;
 					"tooltip-format" = "{:%Y-%m-%d %a}";
-					"on-click" = "/bin/sh ./wallpapers/wallpaper.sh";
 				};
 
-				"cpu" = { "format" = "<span color='#b4befe'>CPU: </span>{usage}%"; };
+				"cpu" = {
+					"format" = "{usage}%";
+					"tooltip-format" = "CPU: {usage}%";
+				};
 				"memory" = {
 					"interval" = 1;
-					"format" = "<span color='#b4befe'>RAM: </span>{used:0.1f}G/{total:0.1f}G";
+					"format" = "{used:0.1f}G\n{total:0.1f}G";
+					"tooltip-format" = "RAM: {used:0.1f}G/{total:0.1f}G";
 				};
 				"backlight" = {
 					"device" = "intel_backlight";
-					"format" = "<span color='#b4befe'>{icon}</span> {percent}%";
+					"format" = "{icon}";
 					"format-icons" = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
+					"tooltip-format" = "{percent}%";
 				};
 				"pulseaudio"= {
-					"format" = "<span color='#b4befe'>{icon}</span> {volume}%";
+					"format" = "{icon}";
 					"format-muted" = "󰝟";
-					"tooltip" = false;
+					"tooltip-format" = "{volume}%";
 					"format-icons" = {
 						"headphone" = "";
 						"default" = ["󰕿" "󰖀" "󰕾"];
@@ -67,25 +71,25 @@
 					"on-click" = "${lib.getExe pkgs.pavucontrol}";
 				};
 				"bluetooth" = {
-					"format" = "<span color='#b4befe'> </span> {status}";
+					"format" = "";
 					"format-disabled" = "󰂲";
-					"format-connected" = "<span color='#b4befe'>󰂯</span> {num_connections}";
+					"format-connected" = "󰂯";
 					"tooltip-format" = "{device_enumerate}";
 					"tooltip-format-enumerate-connected" = "{device_alias}   {device_address}";
 					"on-click" = "kitty ${lib.getExe pkgs.bluetuith}";
 				};
 				"network" = {
 					"format" = "{ifname}";
-					"format-wifi" = "<span color='#b4befe'> </span> {essid}";
-					"format-ethernet" = "<span color='#b4befe'>󰈀 </span> {ipaddr}/{cidr}";
-					"format-disconnected" = "<span color='#b4befe'>󰖪 </span> No Network";
-					"tooltip" = false;
+					"format-wifi" = "";
+					"format-ethernet" = "󰈀";
+					"format-disconnected" = "󰖪";
+					"tooltip-format" = "{essid}";
 					"on-click" = "kitty nmtui";
 				};
 				"battery" = {
-					"format" = "{icon} {capacity}%";
-					"format-icons" =  ["<span color='#FF0000'> </span>" "<span color='#b4befe'> </span>" "<span color='#b4befe'> </span>" "<span color='#b4befe'> </span>" "<span color='#b4befe'> </span>" ];
-					"format-charging" = "<span color='#b4befe'>󱐋 </span>{icon} {capacity}%";
+					"format" = "{icon}\n{capacity}%";
+					"format-icons" =  ["" "" "" "" "" ];
+					"format-charging" = "󱐋{icon}";
 					"tooltip" = false;
 				};
 			};
@@ -96,61 +100,12 @@
 				border: none;
 				font-family: 'Ubuntu Nerd Font';
 				font-size: 15px;
-				min-height: 20px;
-			}
-
-			window#waybar {
-				background: transparent;
-			}
-
-			#custom-power, 
-			#workspaces {
-				border-radius: 7px;
-				background-color: #11111b;
-				color: #b4befe;
-				margin-top: 7px;
-				margin-right: 10px;
-				padding-top: 1px;
-				padding-left: 7px;
-				padding-right: 7px;
-			}
-
-			#custom-power {
-				font-size: 20px;
-				margin-left: 15px;
-				color: #b4befe;
-			}	
-
-			#workspaces button.active {
 				background: #11111b;
 				color: #b4befe;
 			}
 
-			#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #cpu, #memory{
-				border-radius: 10px;
-				background-color: #11111b;
-				color: #cdd6f4;
-				margin-top: 7px;
-				padding-left: 10px;
-				padding-right: 10px;
-				margin-right: 15px;
-			}
-
-			#backlight, #bluetooth {
-				border-top-right-radius: 0;
-				border-bottom-right-radius: 0;
-				padding-right: 5px;
-				margin-right: 0
-			}
-
-			#pulseaudio, #network {
-				border-top-left-radius: 0;
-				border-bottom-left-radius: 0;
-				padding-left: 5px;
-			}
-
 			#clock {
-				margin-right: 0;
+				font-size: 20px;
 			}
 		'';
 	};

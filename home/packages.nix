@@ -13,6 +13,4 @@
 			"clean" = "sudo nix-collect-garbage && nix-collect-garbage -d";
 		};
 	};
-
-#	programs.firefox.enable = true;
 }
