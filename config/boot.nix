@@ -1,4 +1,6 @@
 {pkgs, ...}:
+let secrets = import ../secrets.nix;
+in
 {
 	boot.loader.efi.canTouchEfiVariables = true;
 
@@ -12,7 +14,7 @@
 		enable = true;
 		settings = { 
 			default_session = {
-				user = "merlin";
+				user = "${secrets.username}";
 				command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland --user-menu";
 			};
 		};
