@@ -1,5 +1,6 @@
 {pkgs, ...}:
 {
+	hardware.graphics.enable = true;
 	services.xserver.enable = true;
 	services.displayManager.sddm.enable = true;
 	services.xserver.xkb = {

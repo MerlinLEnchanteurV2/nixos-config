@@ -2,13 +2,11 @@
 let secrets = import ../secrets.nix;
 in
 {
-	boot.loader.efi.canTouchEfiVariables = true;
+	  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-	boot.loader.grub = {
-		enable = true;
-		efiSupport = true;
-		device = "nodev";
-	};
+  boot.initrd.luks.devices."luks-cf8d4b22-6e21-4c3b-a3a7-8ee5b50fe1d5".device = "/dev/disk/by-uuid/cf8d4b22-6e21-4c3b-a3a7-8ee5b50fe1d5";
+
 
 	services.greetd = {
 		enable = true;
