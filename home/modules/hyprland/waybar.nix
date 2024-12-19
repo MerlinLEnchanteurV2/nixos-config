@@ -100,8 +100,8 @@
 				border: none;
 				font-family: 'Ubuntu Nerd Font';
 				font-size: 15px;
-				background: #110000;
-				color: #b4befe;
+				background: rgba(12, 17, 20, 0.5);
+				color: #BCCCDC;
 			}
 
 			#clock {

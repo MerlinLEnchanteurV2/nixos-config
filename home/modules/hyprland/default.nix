@@ -76,8 +76,8 @@
 	services.hyprpaper.settings = {
 		ipc = "on";
 		splash = false;
-		preload = [ "/etc/nixos/wallpapers/jwst.png" ];
-		wallpaper = [ ",/etc/nixos/wallpapers/jwst.png" ];
+		preload = [ "/etc/nixos/assets/jwst.png" ];
+		wallpaper = [ ",/etc/nixos/assets/jwst.png" ];
 	};
 
 	programs.hyprlock = {
