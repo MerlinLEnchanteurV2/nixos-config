@@ -11,6 +11,7 @@
 		enableCompletion = true; 
 		shellAliases = {
 			"clean" = "sudo nix-collect-garbage && nix-collect-garbage -d";
+			"hy" = "Hyprland";
 		};
 	};
 }
