@@ -2,7 +2,7 @@
 {
 	imports = [
 		./nixvim
-		./hyprland
+		./hypr
 		./kitty
 		./git
 		./firewolf
