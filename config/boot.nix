@@ -12,7 +12,7 @@ in
 		settings = { 
 			default_session = {
 				user = "${secrets.username}";
-				command = "${lib.getExe pkgs.fastfetch} && bash"; #"${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland --user-menu";
+				command = "bash"; #"${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland --user-menu";
 			};
 		};
 	};
