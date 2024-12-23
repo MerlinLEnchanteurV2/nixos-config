@@ -1,6 +1,4 @@
 {pkgs, config, ...}:
-# let options = import ./options.nix;
-# in
 {
 	home.file.".librewolf" = {
 		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.mozilla/firefox";
@@ -49,8 +47,8 @@
 			settings = {
 				"browser.aboutConfig.showWarning" = false;
 				"browser.startup.page" = 3;
-				"browser.startup.homepage" = "about:blank";
-				"browser.newtabpage.enabled" = false;
+				"browser.startup.homepage" = "about:home";
+				"browser.newtabpage.enabled" = true;
 				"browser.newtabpage.activity-stream.showSponsored" = false;
 				"browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
 				"browser.newtabpage.activity-stream.default.sites" = "";

@@ -19,4 +19,5 @@ in
 
 	systemd.services.NetworkManager-wait-online.enable = false;
 	systemd.services.dhcpcd.enable = false;
+	boot.kernelPackages = pkgs.linuxPackages_latest;
 }

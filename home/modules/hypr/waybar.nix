@@ -106,6 +106,7 @@
 
 			#clock {
 				font-size: 20px;
+				padding-right: 3px;
 			}
 		'';
 	};

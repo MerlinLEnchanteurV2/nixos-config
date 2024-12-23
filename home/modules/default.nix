@@ -6,5 +6,6 @@
 		./kitty
 		./git
 		./firewolf
+		./fastfetch
 	];
 }
