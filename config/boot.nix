@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, lib, ...}:
 let secrets = import ../secrets.nix;
 in
 {
@@ -12,7 +12,7 @@ in
 		settings = { 
 			default_session = {
 				user = "${secrets.username}";
-				command = "bash"; #"${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland --user-menu";
+				command = "${lib.getExe pkgs.fastfetch} && bash"; #"${pkgs.greetd.tuigreet}/bin/tuigreet -c Hyprland --user-menu";
 			};
 		};
 	};
