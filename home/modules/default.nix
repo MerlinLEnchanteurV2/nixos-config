@@ -7,5 +7,6 @@
 		./git
 		./firewolf
 		./fastfetch
+		./bash
 	];
 }

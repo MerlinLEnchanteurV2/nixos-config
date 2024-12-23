@@ -5,14 +5,4 @@
 		rustup
 		gcc
 	];
-
-	programs.bash = {
-		enable = true;
-		enableCompletion = true; 
-		shellAliases = {
-			"clean" = "sudo nix-collect-garbage && nix-collect-garbage -d";
-			"hy" = "Hyprland";
-			"x" = "exit";
-		};
-	};
 }
