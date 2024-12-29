@@ -2,7 +2,8 @@
 {
 	home.packages = with pkgs; [
 		keepassxc
-		rustup
+		#rustup
+		#cargo
 		gcc
 	];
 }

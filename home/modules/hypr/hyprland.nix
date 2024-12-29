@@ -21,7 +21,7 @@
 				"waybar"
 			];
 			bind = [
-				"$mod, Return, exec, kitty"
+				"$mod, Return, exec, kitty --hold fastfetch"
 				"$mod, B, exec, $BROWSER"
 				"$mod, space, exec, $BROWSER https://mynixos.com"
 				"$mod, S, exec, ${lib.getExe pkgs.signal-desktop}"
