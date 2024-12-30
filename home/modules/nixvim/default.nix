@@ -10,9 +10,9 @@
 		defaultEditor = true;
 		
 		plugins = {
-			airline = {
-				enable = true;
-			};
+		# 	airline = {
+		# 		enable = true;
+		#	};
 
 
 
