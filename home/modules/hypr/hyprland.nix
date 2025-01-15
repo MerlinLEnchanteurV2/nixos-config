@@ -30,14 +30,16 @@
 				"$mod SHIFT, Escape, togglefloating"
 				"$mod, Escape, fullscreen" 
 
-				", XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} set 1%-"
+				", XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} set 1%-"	
 				", XF86MonBrightnessUp, exec, ${lib.getExe pkgs.brightnessctl} set 1%+"
 
 				", XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
 				", XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
 				", XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-				"$mod SHIFT, H, exec, systemctl hibernate && hyprlock"
+				", Print, exec, ${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp} -d)\" - | ${lib.getExe pkgs.swappy} -f -"
+
+				"$mod SHIFT, H, exec, systemctl hibernate"
 			] ++ (
 				builtins.concatLists (builtins.genList (i:
 					let ws = i + 1;
@@ -47,9 +49,6 @@
 					])
 				9)
 			);
-		
-			binds = "Super_L&Shift_L, S, exec, ${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp} -d)\" - | ${lib.getExe pkgs.swappy} -f -";
-
 			bindm = [
 				"$mod, mouse:272, movewindow"
 				"$mod, mouse:273, resizewindow"

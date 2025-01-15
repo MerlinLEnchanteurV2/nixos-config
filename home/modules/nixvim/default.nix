@@ -1,4 +1,4 @@
-{nixvim, ...}:
+{nixvim, pkgs, ...}:
 {
 	imports = [
 		nixvim.homeManagerModules.nixvim
@@ -10,12 +10,7 @@
 		defaultEditor = true;
 		
 		plugins = {
-		# 	airline = {
-		# 		enable = true;
-		#	};
-
-
-
+			lualine.enable = true;
 			web-devicons.enable = true;
 			which-key.enable = true;
 			telescope = {
@@ -44,9 +39,18 @@
 			noice.enable = true;
 			todo-comments.enable = true;
 			indent-blankline.enable = true;
+			treesitter = {
+				enable = true;
+				settings.highlight.enable = true;
+				settings.autoinstall.enable = true;	
+			};
 			lsp = {
 				enable = true;
 				servers = {
+					ts_ls.enable=true;
+					html.enable = true;
+					pylsp.enable = true;
+					svelte.enable = true;
 					nil_ls.enable = true;
 					rust_analyzer = {
 						enable = true;
@@ -75,8 +79,8 @@
 						"<C-e>" = "cmp.mapping.close()";
 						"<C-f>" = "cmp.mapping.scroll_docs(4)";
 						"<Tab>" = "cmp.mapping.confirm({ select = true })";
-						"k" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-						"j" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+						"<Up>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+						"<Down>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
 					};
 				};
 			};
@@ -100,5 +104,6 @@
 		globals.mapleader = " ";
 		clipboard.providers.wl-copy.enable = true;
 		clipboard.register = "unnamedplus";
+		colorschemes.onedark.enable = true;
 	};
 }
