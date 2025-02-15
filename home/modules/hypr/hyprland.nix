@@ -1,6 +1,7 @@
 {pkgs, inputs, lib, ...}:
 {
 	wayland.windowManager.hyprland = {
+		xwayland.enable = true;
 		enable = true;
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 		settings = {
@@ -30,12 +31,16 @@
 				"$mod SHIFT, Escape, togglefloating"
 				"$mod, Escape, fullscreen" 
 
-				", XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} set 1%-"	
-				", XF86MonBrightnessUp, exec, ${lib.getExe pkgs.brightnessctl} set 1%+"
+				", F5, exec, ${lib.getExe pkgs.brightnessctl} set 1%-"	
+				", F6, exec, ${lib.getExe pkgs.brightnessctl} set 1%+"
 
-				", XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
-				", XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
-				", XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+				", F3, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+				", F2, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+				", F1, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+				", F10, exec, hyprlock"
+
+				", F12, exec, ${lib.getExe pkgs.qalculate-gtk}"
 
 				", Print, exec, ${lib.getExe pkgs.grim} -g \"$(${lib.getExe pkgs.slurp} -d)\" - | ${lib.getExe pkgs.swappy} -f -"
 

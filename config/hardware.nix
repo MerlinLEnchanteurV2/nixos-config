@@ -1,7 +1,7 @@
 {...}:
 {
 	services.printing.enable = true;
-	hardware.pulseaudio.enable = false;
+	services.pulseaudio.enable = false;
 	services.pipewire = {
 		wireplumber.enable = true;
 		enable = true;

@@ -31,10 +31,12 @@
 				};
 			};
 			notify = {
-			enable = true;
-				topDown = false;
-				stages = "slide";
-				render = "minimal";
+				enable = true;
+				settings = {
+					top_down = false;
+					stages = "slide";
+					render = "minimal";
+				};
 			};
 			noice.enable = true;
 			todo-comments.enable = true;
@@ -52,6 +54,7 @@
 					pylsp.enable = true;
 					svelte.enable = true;
 					nil_ls.enable = true;
+					clangd.enable = true;
 					rust_analyzer = {
 						enable = true;
 						installRustc = false;
@@ -79,8 +82,8 @@
 						"<C-e>" = "cmp.mapping.close()";
 						"<C-f>" = "cmp.mapping.scroll_docs(4)";
 						"<Tab>" = "cmp.mapping.confirm({ select = true })";
-						"<Up>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-						"<Down>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+						"K" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+						"J" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
 					};
 				};
 			};
@@ -92,7 +95,17 @@
 				key = "<leader>e";
 				action = "<cmd>Neotree<CR>";
 			}
-		];
+			{
+				mode = "n";
+				key = "mf";
+				action = "<cmd>lua vim.lsp.buf.format()<CR>";
+			}
+			{
+				mode = "n";
+				key = "mr";
+				action = "<cmd>lua vim.lsp.buf.rename()<CR>";
+			}
+	];
 	
 		opts = {
 			tabstop = 2;

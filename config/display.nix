@@ -1,11 +1,13 @@
 {pkgs, ...}:
 {
 	hardware.graphics.enable = true;
-	services.xserver.enable = true;
-	services.displayManager.sddm.enable = true;
-	services.xserver.xkb = {
-		layout = "fr";
-		variant = "";
+	services.xserver = {
+    enable = true;
+    layout = "fr";
+    displayManager.lightdm.enable = true;
+  };
+	services.displayManager.sddm = {
+		enable = false;
 	};
 	console.keyMap = "fr";
 
@@ -18,7 +20,7 @@
     };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      # pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-hyprland
     ];
   };

@@ -2,8 +2,8 @@
 {
 	home.packages = with pkgs; [
 		keepassxc
-		#rustup
-		#cargo
+		python313
 		gcc
+		bat
 	];
 }

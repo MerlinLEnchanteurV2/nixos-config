@@ -88,6 +88,8 @@
 				"browser.theme.content-theme" = 0;
 				"browser.theme.native-theme" = false;
 				"browser.theme.toolbar-theme" = 0;
+
+				"sidebar.verticalTabs" = true;
 			};
 		};
 	};
